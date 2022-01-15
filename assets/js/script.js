@@ -2,16 +2,20 @@
 
 //SET UP 4 TYPE OF CHARACTERS and LENGTH FOR THE PASSWORD
 //----lowercase characters array
-var lowercaseChar = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+//var lowercaseChar = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var lowercaseChar = "abcdefghijklmnopqrstuvwxyz"
 
 //----uppercase characters array
-var uppercaseChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+//var uppercaseChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var uppercaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 //----number characters array
-var numbersChar = [0, 1, 2, 3, 4, 5, 6, 7, 8 , 9];
+//var numbersChar = [0, 1, 2, 3, 4, 5, 6, 7, 8 , 9];
+var numbersChar = "0123456789"
 
 //----special charcters array""
-var specialChar = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "{", "}", "|", "\\", "[", "]", ":", ";", "'", "<", ">", ",", ".", "?", "/", "`"];
+//var specialChar = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "{", "}", "|", "\\", "[", "]", ":", ";", "'", "<", ">", ",", ".", "?", "/", "`"];
+var specialChar = "~`!@#$%^&*()_+-=[]\;',./{}|:<>?";
 
 //----password length
 var passLengthFunc = function(){
@@ -69,7 +73,7 @@ function generatePassword(){
   var finalPassword = "";
 
   //create an array stores all confirm character include in the final password
-  var confirmIncludeChar = [];
+  var confirmIncludeChar = "";
 
   //confirm character condition
   //----if include lowercase characters - add to final password
@@ -92,7 +96,7 @@ function generatePassword(){
     confirmIncludeChar = confirmIncludeChar.concat(specialChar);
   }
 
-  console.log(confirmIncludeChar);
+ /* console.log(confirmIncludeChar);
 
   //generate random character 
   confirmIncludeChar = confirmIncludeChar.sort(() => Math.floor(Math.random() - 0.5));
@@ -102,7 +106,16 @@ function generatePassword(){
   finalPassword = confirmIncludeChar.slice(0, passwordLength);
   console.log(finalPassword);
   
-  return finalPassword.join("");
+  return finalPassword.join("");*/
+  console.log(confirmIncludeChar);
+  for (var i = 0; i < passwordLength; i++){
+    var randomChars = Math.floor(Math.random() * confirmIncludeChar.length);
+    console.log(randomChars);
+    finalPassword += confirmIncludeChar.charAt(randomChars, randomChars++);
+    console.log(finalPassword);
+  }
+  return finalPassword;
+
 }
 
 // Get references to the #generate element
