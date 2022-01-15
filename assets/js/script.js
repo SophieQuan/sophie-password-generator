@@ -20,6 +20,20 @@ var passLengthFunc = function(){
   passwordLength = parseInt(prompt("How many characters would you like your password to contain?"));
 };
 
+//FUNCTION VERIFY PASSWORD INFO whether or not to include lowercase, uppercase, numeric, and/or special characters
+function verifyPassword (){
+  if(passwordLength < 8 || passwordLength > 128){
+    alert("Password length must be at least 8 characters and no more than 128 characters.");
+    generatePassword();
+  }
+  else if( isNaN(passwordLength) ){
+    alert("Invalid input. Please insert a number.");
+    generatePassword();
+  } 
+  else{
+    generatePassword();
+  };
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
