@@ -1,32 +1,25 @@
-// Assignment code here
-
 //SET UP 4 TYPE OF CHARACTERS and LENGTH FOR THE PASSWORD
-//----lowercase characters array
-//var lowercaseChar = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var lowercaseChar = "abcdefghijklmnopqrstuvwxyz"
+//--lowercase characters string--
+var lowercaseChar = "abcdefghijklmnopqrstuvwxyz";
 
-//----uppercase characters array
-//var uppercaseChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-var uppercaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+//--uppercase characters string--
+var uppercaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-//----number characters array
-//var numbersChar = [0, 1, 2, 3, 4, 5, 6, 7, 8 , 9];
-var numbersChar = "0123456789"
+//--number characters string--
+var numbersChar = "0123456789";
 
-//----special charcters array""
-//var specialChar = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "{", "}", "|", "\\", "[", "]", ":", ";", "'", "<", ">", ",", ".", "?", "/", "`"];
+//--special charcters string--
 var specialChar = "~`!@#$%^&*()_+-=[]\;',./{}|:<>?";
 
-//----password length
+//--password length--
 var passLengthFunc = function(){
   passwordLength = parseInt(prompt("How many characters would you like your password to contain?"));
 };
 
 //FUNCTION VERIFY PASSWORD INFO whether or not to include lowercase, uppercase, numeric, and/or special characters
 function verifyPassword (){
-  //confirm password length by execute passLengthFunc()
+  //confirm password length
   passLengthFunc();
-
 
   if(passwordLength < 8 || passwordLength > 128){
     alert("Password length must be at least 8 characters and no more than 128 characters.");
@@ -37,16 +30,16 @@ function verifyPassword (){
     generatePassword();
   }
 
-  //confirm includding lowercase characters
+  //--confirm includding lowercase characters
   var confirmlowerChar = window.confirm("Would you like to include lowercase characters? Click Ok to confirm.");
 
-  //confirm includding lowercase characters
+  //--confirm includding lowercase characters
   var confirmUpperChar = window.confirm("Would you like to include uppercase characters? Click Ok to confirm.");
 
-  //confirm includding lowercase characters
+  //--confirm includding lowercase characters
   var confirmNumChar = window.confirm("Would you like to include number characters? Click Ok to confirm.");
 
-  //confirm includding lowercase characters
+  //--confirm includding lowercase characters
   var confirmSpecialChar = window.confirm("Would you like to include special characters? Click Ok to confirm.");
 
   //user should confirm at least one character type, show alert if not meet this requirement
@@ -66,53 +59,44 @@ function verifyPassword (){
 };
 
 function generatePassword(){
-  //declare the verifyPassword function
+  //--declare the verifyPassword function
   var verifiyPassword = verifyPassword();
 
-  //declare and store final password in an empty string
+  //--declare and store final password in an empty string
   var finalPassword = "";
 
-  //create an array stores all confirm character include in the final password
+  //--stores all confirm character include in the final password
   var confirmIncludeChar = "";
 
   //confirm character condition
-  //----if include lowercase characters - add to final password
+  //--if include lowercase characters - add to final password
   if (verifiyPassword.confirmlowerChar) {
     confirmIncludeChar = confirmIncludeChar.concat(lowercaseChar);
   }
 
-  //----if include uppercase characters - add to final password
+  //--if include uppercase characters - add to final password
   if (verifiyPassword.confirmUpperChar) {
     confirmIncludeChar = confirmIncludeChar.concat(uppercaseChar);
   }
 
-  //----if include number characters - add to final password
+  //--if include number characters - add to final password
   if (verifiyPassword.confirmNumChar) {
     confirmIncludeChar = confirmIncludeChar.concat(numbersChar);
   }
 
-  //----if include uppercase characters - add to final password
+  //--if include uppercase characters - add to final password
   if (verifiyPassword.confirmSpecialChar) {
     confirmIncludeChar = confirmIncludeChar.concat(specialChar);
   }
 
- /* console.log(confirmIncludeChar);
-
-  //generate random character 
-  confirmIncludeChar = confirmIncludeChar.sort(() => Math.floor(Math.random() - 0.5));
   console.log(confirmIncludeChar);
 
-  //only return the input password length
-  finalPassword = confirmIncludeChar.slice(0, passwordLength);
-  console.log(finalPassword);
-  
-  return finalPassword.join("");*/
-  console.log(confirmIncludeChar);
+  //generate random password with the loop
   for (var i = 0; i < passwordLength; i++){
     var randomChars = Math.floor(Math.random() * confirmIncludeChar.length);
-    console.log(randomChars);
+    //console.log(randomChars);
     finalPassword += confirmIncludeChar.charAt(randomChars, randomChars++);
-    console.log(finalPassword);
+    //console.log(finalPassword);
   }
   return finalPassword;
 
