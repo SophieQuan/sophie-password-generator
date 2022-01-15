@@ -15,4 +15,4 @@ https://sophiequan.github.io/sophie-password-generator/
 https://github.com/SophieQuan/sophie-password-generator
 
 ## Screenshot
-![screen shot of password generator](assets/images/screenshot-password-generator?raw=true "Optional Title")
+![screen shot of password generator](assets/images/screenshot-password-generator.png?raw=true "Screenshot Password Generator")
