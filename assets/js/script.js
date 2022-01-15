@@ -18,7 +18,7 @@ var passLengthFunc = function(){
 
 //FUNCTION VERIFY PASSWORD INFO whether or not to include lowercase, uppercase, numeric, and/or special characters
 function verifyPassword (){
-  debugger;
+  //debugger;
   //confirm password length
   passLengthFunc();
 

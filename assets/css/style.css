@@ -123,6 +123,12 @@ button[disabled] {
   display: none;
   text-align: center;
 }
+textarea{
+  height: auto;
+}
+#password{
+  overflow: scroll;
+}
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;
@@ -139,4 +145,5 @@ button[disabled] {
   h4, li, .btn {
     font-size: 0.8rem;
   }
+  
 }
